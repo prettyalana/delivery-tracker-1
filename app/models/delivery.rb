@@ -12,5 +12,5 @@
 #  user_id               :integer
 #
 class Delivery < ApplicationRecord
-  # validates(:description, {presence => true})
+  validates(:arrived, {:presence => false})
 end
