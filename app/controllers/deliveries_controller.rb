@@ -14,6 +14,8 @@ class DeliveriesController < ApplicationController
     the_delivery.supposed_to_arrive_on = params.fetch("query_supposed_to_arrive")
     the_delivery.details = params.fetch("query_details")
 
+    the_delivery.arrived = false
+
     if the_delivery.valid?
       the_delivery.save
       redirect_to("/deliveries", { :notice => "Delivery created successfully." })
@@ -25,9 +27,10 @@ class DeliveriesController < ApplicationController
   def update
     the_id = params.fetch("path_id")
     the_delivery = Delivery.where({ :id => the_id })[0]
-    the_delivery.description = params.fetch("query_description")
-    the_delivery.supposed_to_arrive = params.fetch("query_supposed_to_arrive")
-    the_delivery.details = params.fetch("query_details")
+    # the_delivery.description = params.fetch("query_description")
+    # the_delivery.details = params.fetch("query_details")
+    # the_delivery.supposed_to_arrive_on = true
+    the_delivery.arrived = true
 
     if the_delivery.valid?
       the_delivery.save

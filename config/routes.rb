@@ -2,6 +2,11 @@ Rails.application.routes.draw do
   devise_for :users
 
   root to: "deliveries#index"
+  # root to: "devise/sessions#new"
+  # 1) You forgot to wrap your route inside the scope block. For example:
+  # devise_scope :user do
+  #   get "/some/route" => "some_devise_controller"
+  
   # Routes for the Delivery resource:
 
   get("/", { :controller => "deliveries", :action => "index" })
@@ -18,7 +23,7 @@ Rails.application.routes.draw do
   
   post("/modify_delivery/:path_id", { :controller => "deliveries", :action => "update" })
   
-  # # DELETE
+  # DELETE
   get("/delete_delivery/:path_id", { :controller => "deliveries", :action => "destroy" })
 
   #------------------------------

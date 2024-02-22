@@ -1,6 +1,4 @@
-<%#=the_delivery.inspect%>
 
-<%#=@list_of_deliveries.inspect%>
 
 <div>
   <div>
@@ -55,7 +53,9 @@
 
 <div class="waiting_on">
   <h2>Waiting on</h2>
-  <%@list_of_deliveries.each do |a_delivery|%>
+
+  <!-- Filter the list of deliveries by arrived-->
+  <%@list_of_deliveries.where({:arrived => false}).each do |a_delivery|%>
     <ul>
       <li>
         <%=a_delivery.description%>
@@ -74,8 +74,6 @@
 
 <hr>
 
-<hr>
-
 <div class="received">
   <h2>Received</h2>
   <%@list_of_deliveries.each do |a_delivery|%>
@@ -85,7 +83,7 @@
         <div><%=a_delivery.description%></div>
         <div>
           <small>
-            <a href="/delete_delivery/<%=a_delivery.id%>">Delete</a>
+           Updated <%=a_delivery.updated_at%> <a href="/delete_delivery/<%=a_delivery.id%>">Delete</a>
           </small>
         </div>
       </li>
