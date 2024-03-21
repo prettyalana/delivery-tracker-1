@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   # devise_scope :user do
   #   get "/some/route" => "some_devise_controller"
   
+  
   # Routes for the Delivery resource:
 
   get("/", { :controller => "deliveries", :action => "index" })

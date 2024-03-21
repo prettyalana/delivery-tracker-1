@@ -44,7 +44,7 @@ class DeliveriesController < ApplicationController
 
   def destroy
     the_id = params.fetch("path_id")
-    the_delivery = Delivery.where({ :id => the_id }).at(0)
+    the_delivery = Delivery.where({ :id => the_id })[0]
 
     the_delivery.destroy
 

@@ -1,5 +1,3 @@
-
-
 <div>
   <div>
     <h1>
@@ -54,7 +52,6 @@
 <div class="waiting_on">
   <h2>Waiting on</h2>
 
-  <!-- Filter the list of deliveries by arrived-->
   <%@list_of_deliveries.where({:arrived => false}).each do |a_delivery|%>
     <ul>
       <li>
@@ -83,7 +80,7 @@
         <div><%=a_delivery.description%></div>
         <div>
           <small>
-           Updated <%=time_ago_in_words(Time.now)%> <a href="/delete_delivery/<%=a_delivery.id%>">Delete</a>
+            Updated <%=time_ago_in_words(Time.now)%> <a href="/delete_delivery/<%=a_delivery.id%>">Delete</a>
           </small>
         </div>
       </li>
